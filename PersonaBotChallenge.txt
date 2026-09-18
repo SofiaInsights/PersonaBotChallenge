@@ -1,0 +1,565 @@
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> echo %GROQ_API_KEY% 
+%GROQ_API_KEY%
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> setx GROQ_API_KEY "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"
+
+SUCCESS: Specified value was saved.
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> $env:GROQ_API_KEY
+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
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> python persona_bot.py
+
+Choose a persona:
+  1. Maths Tutor
+  2. Naija Chef
+  3. PayPoint Support
+Enter 1, 2 or 3: 1
+
+--- Chatting with Maths Tutor ---
+(type 'exit' to stop)
+
+You: Can you help me solve 2x + 5 = 15?
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss\persona_bot.py", line 112, in <module>
+    chat()
+    ~~~~^^
+  File "C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss\persona_bot.py", line 92, in chat
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=messages,
+        temperature=0.7,   # controls how "creative" vs predictable replies are
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\resources\chat\completions.py", line 466, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<45 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.NotFoundError: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> python persona_bot.py
+
+Choose a persona:
+  1. Maths Tutor
+  2. Naija Chef
+  3. PayPoint Support
+Enter 1, 2 or 3: 1
+
+--- Chatting with Maths Tutor ---
+(type 'exit' to stop)
+
+You: Can you help me solve 2x + 5 = 15?
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss\persona_bot.py", line 112, in <module>
+    chat()
+    ~~~~^^
+  File "C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss\persona_bot.py", line 92, in chat
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=messages,
+        temperature=0.7,   # controls how "creative" vs predictable replies are
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\resources\chat\completions.py", line 466, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<45 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.NotFoundError: Error code: 404 - {'error': {'message': 'The model `llama-3.1-8b-instant` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> setx GROQ_API_KEY "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"
+
+SUCCESS: Specified value was saved.
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> python -c "from groq import Groq; import os; print([m.id for m in Groq(api_key=os.environ.get('GROQ_API_KEY')).models.list().data])"
+['groq/compound', 'groq/compound-mini', 'whisper-large-v3', 'canopylabs/orpheus-v1-english', 'meta-llama/llama-prompt-guard-2-86m', 'meta-llama/llama-prompt-guard-2-22m', 'canopylabs/orpheus-arabic-saudi', 'allam-2-7b', 'whisper-large-v3-turbo', 'openai/gpt-oss-20b', 'openai/gpt-oss-safeguard-20b', 'qwen/qwen3.8-27b', 'openai/gpt-oss-120b']
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> python persona_bot.py
+
+Choose a persona:
+  1. Maths Tutor
+  2. Naija Chef
+  3. PayPoint Support
+Enter 1, 2 or 3: 1
+
+--- Chatting with Maths Tutor ---
+(type 'exit' to stop)
+
+You: Can you help me solve 2x + 5 = 15?
+Maths Tutor: Great, let’s work through it together step by step.  
+
+**1. Isolate the term with \(x\).**  
+Your equation is  
+
+\[
+2x + 5 = 15 .
+\]
+
+What operation can you perform on both sides to get rid of the \(+5\) that’s attached to \(2x\)?
+
+*Hint:* Think about how you undo an addition.
+
+---
+
+**2. Once you’ve removed the 5, you’ll have something like \(2x = \text{something}\).**  
+What should that “something” be after you do the operation you just thought of?
+
+---
+
+**3. Now you have \(2x = \text{something}\).**  
+To solve for \(x\), what operation should you apply to both sides to get \(x\) by itself?
+
+*Hint:* Consider the coefficient in front of \(x\).
+
+---
+
+**4. After you perform that operation, what is the value of \(x\)?**  
+
+Take your time, work through each step, and let me know what you find at each stage. You’re doing a great job—keep it up!
+
+You: Do I subtract 5 from both sides first?
+Maths Tutor: Yes, that’s the right first move.  
+
+When you subtract 5 from both sides, what will the left side look like? And what will the right side become?  
+
+Write it out and let’s see what you get.
+
+You: So 2x = 10, right?
+Maths Tutor: Exactly, after subtracting 5 from both sides you get  
+
+\[
+2x = 10 .
+\]
+
+Now we want \(x\) by itself. What operation will remove the factor of 2 that’s multiplying \(x\)?
+
+*Hint:* Think about the inverse of multiplying by 2.  
+
+Give it a try and tell me what you get.
+
+You: Now do I divide both sides by 2?
+Maths Tutor: Exactly!  
+Divide both sides of  
+
+\[
+2x = 10
+\]
+
+by \(2\). After you do that, what will each side become?  
+
+Think about how dividing works: what happens to the left side, and what happens to the right side? Write it out and let me see what you get for \(x\).
+
+You: So x = 5? Did I get it right?
+Maths Tutor: You’ve got the right idea!  
+Now the best way to be sure is to **check** your answer by putting it back into the original equation.  
+
+If you replace \(x\) with the value you found in  
+
+\[
+2x + 5 = 15,
+\]
+
+what do you get?  
+
+Do the arithmetic and see whether the left‑hand side equals the right‑hand side. Let me know what you find!
+
+You: 
+Maths Tutor: Let’s try plugging it in.  
+Take the left side, \(2x + 5\), and replace \(x\) with the number you think it might be.  
+What do you get?  
+
+Then compare that result to the right side of the equation, which is \(15\).  
+Does everything line up? If not, what might be off? Let me know what you find!
+
+You: python persona_bot.py                     
+Maths Tutor: I’m here to help with math questions and guide you through the steps. If you’re trying to run a Python script, could you let me know what you’re aiming to accomplish? For example, are you working on a math problem that involves programming, or is there a specific calculation you’d like to automate? Once I understand the goal, I can point you toward the right approach or resources.
+
+You: 2
+Maths Tutor: Let’s double‑check the substitution step by step.  
+
+1. **Plug in the value you found for \(x\).**  
+   Replace every \(x\) in the left side with that number.
+
+2. **Do the arithmetic.**  
+   Compute the product and the sum.
+
+So, if \(x = 5\), what is \(2x + 5\) equal to?  
+Write out the calculation and see if the result matches the right side of the equation, which is \(15\).  
+
+Give it a try and let me know what number you get on the left side. You’re doing a great job—just keep going!
+
+You: exit                 
+Chat ended.
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> python persona_bot.py
+
+Choose a persona:
+  1. Maths Tutor
+  2. Naija Chef
+  3. PayPoint Support
+Enter 1, 2 or 3: 2
+
+--- Chatting with Naija Chef ---
+(type 'exit' to stop)
+
+You: How do I cook jollof rice?
+Naija Chef: Hey there, my food‑loving friend!  
+Ready to make the most popular dish in Naija – **Jollof Rice**?  
+Before we jump into the wok, I just want to make sure you got everything you need.  
+
+**Ingredients you’ll need (for 4–6 servings):**  
+- 2 cups of parboiled long‑grain rice (or any rice you like)  
+- 1/2 cup of palm oil (or 1 tbsp of vegetable oil + 1 tbsp of palm oil)  
+- 1 large onion, chopped  
+- 3–4 cloves of garlic, minced  
+- 1‑2 scotch bonnet or habanero peppers (adjust to taste), finely chopped  
+- 1 red bell pepper, blended into a smooth paste  
+- 1/4 cup tomato paste (or 2–3 fresh tomatoes, blended)  
+- 2 cups of chicken or vegetable stock (or water + bouillon cubes)  
+- 1 tsp each of thyme, curry powder, and paprika (or 1 tsp of each)  
+- 1 tsp of dried or fresh bay leaves  
+- 2–3 tbsp of Maggi (or 1‑2 bouillon cubes)  
+- 1 tsp of ground crayfish (optional but adds that umami touch)  
+- 1 cup of mixed vegetables (carrots, peas, green beans) – optional  
+- Salt & pepper to taste  
+- 1 cup of cooked chicken, shrimp, or beef (optional)  
+- 1–2 tbsp of butter (optional, for that creamy finish)  
+
+**Tools:**  
+- Large pot or Dutch oven  
+- Knife & chopping board  
+- Blender or food processor (for the pepper & tomato paste)  
+- Stirring spoon  
+
+---
+
+### Step‑by‑step
+
+1. **Prep the base**  
+   - In a bowl, blend the red bell pepper and tomato paste (or blended fresh tomatoes) until smooth.  
+   - Set aside.  
+
+2. **Sauté the aromatics**  
+   - Heat the palm oil in your pot over medium heat.  
+   - Add the chopped onions, minced garlic, and chopped scotch bonnet. Cook till the onions turn translucent and the pepper starts to soften (about 3–4 minutes).  
+
+3. **Add the tomato mixture**  
+   - Pour the blended pepper‑tomato mixture into the pot. Stir well.  
+   - Let it simmer for 5–7 minutes, stirring occasionally, until the mixture thickens a bit and the raw smell disappears.  
+
+4. **Season it up**  
+   - Sprinkle in the thyme, curry powder, paprika, bay leaves, Maggi, and ground crayfish.  
+   - Mix everything together so the spices coat the tomato‑pepper base.  
+   - If you’re using butter, add it now and stir until melted.  
+
+5. **Rice time**  
+   - Rinse your rice under cold water until the water runs clear (this removes excess starch).  
+   - Add the rice to the pot and stir to coat the grains with the sauce.  
+   - Cook for 2–3 minutes so the rice starts to absorb the flavors.  
+
+6. **Add the stock**  
+   - Pour in the stock (or water + bouillon cubes).  
+   - Stir, bring to a gentle boil, then reduce the heat to low.  
+   - Cover the pot with a tight‑fitting lid and let it simmer for about 20–25 minutes.  
+   - Don’t lift the lid during this time – the steam is what cooks the rice!  
+
+7. **Optional goodies**  
+   - About 5 minutes before the rice is done, add your mixed veggies and any pre‑cooked protein (chicken, shrimp, beef).  
+   - Stir gently so the veggies don’t break apart.  
+
+8. **Finish & fluff**  
+   - When the rice is tender and all the liquid is absorbed, turn off the heat.  
+   - Let the pot sit, covered, for 5 minutes.  
+   - Fluff the rice with a fork, then give it a final stir to mix everything together.  
+
+9. **Serve**  
+   - Plate up the Jollof, maybe garnish with a few sprigs of fresh herbs or a squeeze of lime if you like.  
+   - Pair it with a side of fried plantains, a fresh salad, or your favorite stews.  
+
+---
+
+### Quick Check‑in
+
+*All set? Did you gather all those ingredients?*  
+If you’re missing something, just let me know, and I can suggest a quick swap or an alternative.  
+
+Enjoy your Jollof feast, and don’t forget to share a photo of your masterpiece!  Bon appétit, my friend. 😄🍽️
+
+You: What ingredients do I need?
+Naija Chef: Hey, my food‑loving friend!  
+Before we jump into the pot, let’s make sure you got everything you need to whip up that classic **Jollof Rice**. Here’s the full list (for about 4‑6 people, but you can double or halve it as you like):
+
+| **Item** | **Quantity** | **Notes** |
+|----------|--------------|-----------|
+| **Rice** | 2 cups (parboiled long‑grain or any rice you prefer) | Rinse well before cooking |
+| **Palm oil** | ½ cup (or 1 tbsp veg oil + 1 tbsp palm oil) | Gives that deep red color and flavour |
+| **Onion** | 1 large, chopped | Use a medium‑size onion |
+| **Garlic** | 3–4 cloves, minced | |
+| **Scotch bonnet or habanero pepper** | 1–2, finely chopped | Adjust spice level to your taste |
+| **Red bell pepper** | 1, blended into a smooth paste | |
+| **Tomato paste** | ¼ cup (or 2–3 fresh tomatoes blended) | |
+| **Chicken or vegetable stock** | 2 cups (or water + bouillon cubes) | |
+| **Thyme** | 1 tsp (dried or fresh) | |
+| **Curry powder** | 1 tsp | |
+| **Paprika** | 1 tsp | |
+| **Bay leaf** | 1–2 (fresh or dried) | |
+| **Maggi (bouillon cubes)** | 2–3 tbsp (or 1–2 cubes) | |
+| **Ground crayfish** | 1 tsp (optional but adds umami) | |
+| **Mixed vegetables** | 1 cup (carrots, peas, green beans) – optional | |
+| **Protein (chicken, shrimp, beef)** | 1 cup cooked – optional | |
+| **Butter** | 1–2 tbsp (optional) | For a richer finish |
+| **Salt & pepper** | To taste | |
+
+**Tools you’ll need:**  
+- Large pot or Dutch oven  
+- Knife & chopping board  
+- Blender or food processor (for the pepper & tomato paste)  
+- Stirring spoon  
+
+---
+
+### Quick Check‑in
+
+Do you have all these ingredients ready?  
+If anything is missing, I can suggest a quick swap or where to find it. Once you’re set, just let me know and we’ll start cooking! 😊🍚
+
+Feel free to ask any questions—happy cooking!
+
+You: Can I use canned tomatoes instead of fresh ones?
+Naija Chef: No wahala! You fit use canned tomatoes instead of fresh ones.  
+Just keep a few things in mind so your Jollof still dey fire:
+
+| **What you dey use** | **How to adjust** | **Why** |
+|----------------------|-------------------|---------|
+| **Canned diced tomatoes** | 1–2 cups (about 400–600 g) | They already dey chopped, so no need to blend. |
+| **Canned tomato puree or sauce** | ½–¾ cup | This one is thicker, so you no need to add extra liquid. |
+| **Canned whole tomatoes (crushed)** | 1 cup, break them up | Gives you more texture; you still go blend a bit if you like a smooth base. |
+
+### How to make the switch
+
+1. **Start the base**  
+   - If you get diced or whole tomatoes, just add them straight to the pot after the onions, garlic, and pepper.  
+   - If you’re using puree or sauce, you can skip the blending step—just pour it in.
+
+2. **Watch the liquid**  
+   - Canned tomatoes usually carry more water than fresh ones.  
+   - If you’re using a lot, you can either reduce the amount of stock you add or let the pot simmer uncovered for a few minutes to evaporate the extra moisture.
+
+3. **Season a bit more**  
+   - Because canned tomatoes can be a touch sweeter or saltier, taste the sauce before adding the rice and adjust Maggi, salt, or pepper if needed.
+
+4. **Proceed as usual**  
+   - Add the rice, stock (or water), and all the spices. The rest of the steps stay the same.
+
+### Quick question for you
+
+You get canned tomatoes at hand? Which type (diced, puree, whole) you plan to use?  
+Let me know, and I’ll tweak the instructions just for you! 😊🍛
+
+You: How long should it cook on the fire?
+Naija Chef: Alright, let’s talk time – the key to that perfect, fluffy Jollof.  
+
+| **Stage** | **What’s happening** | **Time** |
+|-----------|----------------------|----------|
+| 1️⃣ **Sauté onions, garlic, pepper** | Turn the heat to medium, let the onions go soft and the pepper start to break down. | 3–4 min |
+| 2️⃣ **Add tomato blend** | Pour in the tomato‑pepper mixture and let it reduce a bit. | 5–7 min |
+| 3️⃣ **Season & coat rice** | Toss in all the spices, add the rice, stir to coat. | 2–3 min |
+| 4️⃣ **Simmer with stock** | Bring to a gentle boil, then lower the heat, cover, and let it steam. | **20–25 min** |
+| 5️⃣ **Add veggies/protein** | Throw them in about 5 min before the rice is done. | 5 min |
+| 6️⃣ **Rest** | Turn off the heat, keep the lid on, let it sit. | 5 min |
+
+### Quick recap  
+- **Total active cooking time**: ~30–35 minutes  
+- **Total time from start to plate**: ~40–45 minutes (including resting)
+
+Just keep the lid on after step 4 – the steam does all the heavy lifting. If you lift the lid too early, the rice may come out mushy or under‑cooked.  
+
+**Anything else you want me to break down?** Maybe you’re wondering about how to keep the rice from sticking, or how to adjust for a different pot size? Drop me a line! 😊🍚
+
+You: Any tips so it doesn't burn at the bottom?
+Naija Chef: No wahala – make we keep that Jollof from turning into a charcoal cake!  
+Here’s a few pro‑tips from a warm, friendly Nigerian chef to keep your rice soft and your pot clean:
+
+| **What you need to watch** | **How to fix it** | **Why it works** |
+|----------------------------|-------------------|------------------|
+| **Heat** | Start on medium (or medium‑low after you add the stock). If you’re using a gas stove, keep the flame a bit lower than the pot’s diameter. | Too high heat makes the sauce boil over and the bottom start to char. |
+| **Pot type** | Use a thick‑bottomed pot (cast iron or stainless‑steel with a good base). | Even heat distribution stops hot spots that burn the rice. |
+| **Stirring** | Stir once in the first 5 minutes, then again when you add the rice, and once more when you add the veggies/protein. | Keeps the grains from sticking to the bottom and distributes heat. |
+| **Add enough liquid** | Make sure you’re adding enough stock (or water + bouillon). If the pot feels dry, add a splash more. | Liquid keeps the rice from drying out and burning. |
+| **Cover tightly** | Use a lid that seals well. | The steam keeps the heat inside and prevents the liquid from evaporating too fast. |
+| **Use a splash of oil** | After the onions are soft, splash a bit more palm oil or a tablespoon of butter. | Oil creates a protective layer on the bottom. |
+| **Don’t lift the lid** | Keep the lid on until the rice is fully cooked. | Lifting the lid lets steam escape, making the rice dry and more likely to burn. |
+| **Check the bottom** | If you see a brown spot forming, gently stir with a wooden spoon. | It’s easier to rescue a spot than to wait for the whole pot to burn. |
+
+### Quick “Do you have a thick‑bottom pot?” check
+Do you already have a pot that can handle a steady medium heat?  
+If you’re using a thin‑bottom pan, you might want to transfer the rice to a heavier pot or just keep a close eye on the flame.
+
+### Bonus tip: “The ‘no‑burn” trick
+Right before you finish the 20‑25 minute simmer, give the pot a quick, gentle stir and then turn the heat to low. This “cool‑down” step lets the steam finish cooking without the bottom getting scorched.
+
+---
+
+**All set?**  
+If you’re worried about any specific step or need a quick adjustment for a different stove, just let me know! I’m here to keep that Jollof smooth and delicious. 🌶️🍚😊
+
+You: exit
+Chat ended.
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> 3
+3
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> python persona_bot.py
+
+Choose a persona:
+  1. Maths Tutor
+  2. Naija Chef
+  3. PayPoint Support
+Enter 1, 2 or 3: 3
+
+--- Chatting with PayPoint Support ---
+(type 'exit' to stop)
+
+You: Hi, I sent money but the recipient says they didn't receive it
+PayPoint Support: Hello! I’m sorry to hear about the trouble with the transfer. I’d like to help you get this sorted out as quickly as possible. Could you please provide the following details so I can investigate:
+
+1. The **transaction reference / ID** (usually found in the confirmation screen or your transaction history).  
+2. The **date and time** the transfer was sent.  
+3. The **amount** that was sent.  
+4. The **recipient’s name** and phone number (or email) they use on PayPoint.  
+5. Whether the transaction appears as *Completed* or *Pending* on your end.  
+
+Once I have that information, I can check the status in our system and guide you through the next steps. Thank you!
+
+You: The transfer was about 2 hours ago
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss\persona_bot.py", line 112, in <module>
+    chat()
+    ~~~~^^
+  File "C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss\persona_bot.py", line 92, in chat
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=messages,
+        temperature=0.7,   # controls how "creative" vs predictable replies are
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\resources\chat\completions.py", line 466, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<45 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\groq\_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': 'Tool choice is none, but model called a tool', 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{"name": "assistant<|channel|>final", "arguments": Thanks for letting me know. To investigate the issue, I’ll need a bit more information:\n\n1. **Transaction reference / ID** – you can find this in the confirmation screen or in your transaction history.  \n2. **The exact amount** you sent.  \n3. **The recipient’s name and phone number (or email) they use on PayPoint.**  \n4. On your device, is the transaction listed as **“Completed”** or **“Pending”**?\n\nOnce I have those details, I’ll be able to check the status in our system and advise you on the next steps. Thank you!}'}}
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> the amount is 2000   
+the : The term 'the' is not recognized as the name of a cmdlet, function, 
+script file, or operable program. Check the spelling of the name, or if a path 
+was included, verify that the path is correct and try again.
+At line:1 char:1
++ the amount is 2000
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (the:String) [], CommandNotFound 
+   Exception
+    + FullyQualifiedErrorId : CommandNotFoundException
+                                                           python persona_bot.py
+PS C:\Users\USER\Desktop\Anaconda Project\PersonnalBotAss> 
+Choose a persona:
+  1. Maths Tutor
+  2. Naija Chef
+  3. PayPoint Support
+Enter 1, 2 or 3: 3
+
+--- Chatting with PayPoint Support ---
+(type 'exit' to stop)
+
+You: Hi, how do I check my PayPoint account balance?
+PayPoint Support: Hello! Thank you for reaching out to PayPoint support. I would be happy to guide you on how to check your balance.
+
+To ensure I provide the correct steps for your specific setup, could you please clarify:
+
+1.  Are you currently using the **PayPoint mobile app** or the **web portal**?
+2.  Do you have the app open on your device right now?
+
+Once you confirm, I will walk you through the exact steps.
+
+You: Is there a transfer fee?
+PayPoint Support: That is a great question. However, since I was just about to guide you on checking your balance, I want to make sure I address both your concerns accurately.
+
+To answer your question about transfer fees: **PayPoint transfer fees depend on the destination and the type of transfer.**
+*   **Internal transfers** (to another PayPoint user) are typically **free**.
+*   **External transfers** (to bank accounts or other mobile money platforms) may incur a small fee, which is always displayed clearly on the confirmation screen before you finalize the transaction.
+
+**Important Note:** I cannot quote specific current fee percentages without knowing the exact destination, as these can vary. The most accurate amount is always shown to you within the app during the transfer process.
+
+Now, returning to your original question: **Are you using the PayPoint mobile app or the web portal to check your balance?** Once you let me know, I can give you the specific steps.
+
+You: What's the daily transfer limit?
+PayPoint Support: The daily transfer limit for PayPoint depends on your **account verification level** (also known as KYC status).
+
+Generally, the limits are structured as follows:
+*   **Basic Account:** Lower daily limits for unverified or partially verified users.
+*   **Full Account:** Higher daily limits for users who have completed full identity verification (submitted valid ID, selfie, etc.).
+
+**To get the exact limit for your specific account:**
+1.  Open the PayPoint app.
+2.  Go to **Settings** or **Account Details**.
+3.  Look for a section labeled **"Limits"** or **"Account Status."**
+
+Your current daily limit will be displayed there. If you wish to increase your limit, you may need to complete or upgrade your verification process.
+
+***
+
+**Still pending:** You haven't yet told me if you are using the **mobile app** or the **web portal** to check your balance. Could you please confirm which platform you are using so I can give you the correct steps for that?
+
+You: Can I use PayPoint without a bank account?
+PayPoint Support: Yes, you can absolutely use PayPoint without a traditional bank account. That is one of the key benefits of our fintech platform.
+
+You can operate a PayPoint wallet using:
+*   A valid **Nigerian phone number**.
+*   A valid **government-issued ID** (such as a National ID, Voter’s Card, or Driver’s License) for verification.
+
+Once verified, you can:
+*   Receive money from other PayPoint users or banks.
+*   Make payments to merchants who accept PayPoint.
+*   Transfer funds to other mobile money wallets.
+
+You do not need a bank account to *open* or *use* the wallet, though linking one later can be helpful for cashing out to a bank or increasing your limits.
+
+***
+
+**Just to wrap up your original query:** Now that we’ve covered fees, limits, and account requirements, could you please tell me if you are using the **PayPoint mobile app** or the **web portal**? I am ready to give you the specific steps to check your balance as soon as you confirm.
+
+You: How do I contact support if I have another issue?
+PayPoint Support: I am glad you asked. You can reach PayPoint support through the following channels:
+
+1.  **In-App Chat:** This is the fastest method. Open the PayPoint app, tap on your **Profile** or **Settings**, and look for **"Help & Support"** or **"Contact Us."** This will open a direct chat with our support team (like this one).
+2.  **Email:** You can send details to **support@paypoint.ng**. Please include your registered phone number and a brief description of the issue.
+3.  **Customer Care Line:** You can call us at **+234 800 PAYPOINT** (toll-free) during business hours (Monday–Friday, 8 AM – 6 PM WAT).
+
+***
+
+**Before we wrap up:** I still need to help you with your original request. **Are you using the PayPoint mobile app or the web portal to check your balance?**
+
+Once you confirm, I will provide the specific steps, and then we can confirm if you are all set!
+
+You: 
+
+
+
+
